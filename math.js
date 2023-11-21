@@ -6,3 +6,7 @@ export function add(numbers) {
   }
   return sum;
 }
+
+const returnStringlength = (str) => {
+  str.length();
+};

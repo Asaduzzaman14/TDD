@@ -50,3 +50,11 @@ it("it should throw an error if no arguments pass ", () => {
 
   expect(errorFun).toThrow();
 });
+
+it("it should throw an error if it multiple argument is provided ", () => {
+  const resFun = () => {
+    add(1, 2, 3);
+  };
+
+  expect(resFun).toThrow(/is not iterable/i);
+});

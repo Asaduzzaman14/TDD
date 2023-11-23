@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { validateEmail } from "./emailValidations";
+import { validateArrayNotEmpty, validateEmail } from "./emailValidations";
 
 describe("validateEmail", () => {
   it("should validate a correct email address ", () => {
@@ -35,5 +35,21 @@ describe("validateEmail", () => {
 
     const resultFn = () => validateEmail(email);
     expect(resultFn).toThrow();
+  });
+});
+
+describe("validateArrayNotEmpty", () => {
+  it("should validation a non empty array", () => {
+    const data = [2, 3];
+    const resultFn = () => validateArrayNotEmpty(data);
+    expect(resultFn).not.toThrow();
+  });
+
+  it(" throw an error for an empty array", () => {
+    expect(() => validateArrayNotEmpty([]).toThrow("array can not empty"));
+  });
+
+  it(" throw an error for a null input", () => {
+    expect(() => validateArrayNotEmpty(null).toThrow("array can not empty"));
   });
 });
